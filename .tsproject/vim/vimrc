@@ -1,0 +1,14 @@
+call _SetupIDEProject(expand("<sfile>"))
+
+" if g:project is customized, it may be necessary to call:
+" call _PerformProjectSettings()
+
+exec printf("cd %s", project.loc.Droot)
+let g:grepper.tools = ['git', 'grep']
+
+" === Scala project stuff
+
+packadd simlei_metalsnvim_scalaide
+
+" this should be called to start a server as named vimide | /home/snuc/.vim/simpleide.vim:102
+" call _project_register_as_vimide()
