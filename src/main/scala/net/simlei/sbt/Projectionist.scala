@@ -26,7 +26,7 @@ object Projectionist {
   }
 
   def generateJSON(buildStructure: sbt.internal.BuildStructure, baseDirectoryAbsolute: os.Path, subprojects: List[SubProject]): String = {
-    val rootProject = subprojects.filter{sub => sub.absolutePath != baseDirectoryAbsolute}.head
+    // val rootProject = subprojects.filter{sub => sub.absolutePath != baseDirectoryAbsolute}.head
     def makeDispatchArg(subProject: SubProject, sourceDirectory: os.Path, keyPattern: String, sbtScope: String) = {
       val sbtTaskInvocation = s"${subProject.projectId} / $sbtScope / runMain {dirname|dot}.{basename}Main"
       s"-compiler=generic sbt-instance '$sbtTaskInvocation'"
